@@ -1,3 +1,4 @@
+// Y U LOOK AT MY SOURCE CODE FOO? IT'S ATROCIOUS. ITS FUGLY. GO AWAY.
 
 //flags for stuffs.
 username = "";
@@ -198,7 +199,7 @@ var Terminal = new Class({
 			this.out('<span class="commandhelp">ls</span>List directories.');
 			this.out('<span class="commandhelp">projects</span>List of current projects.');
 			this.out('<span class="commandhelp">skills</span>SKILLZ.');
-			this.out('<span class="commandhelp">resume</span>Displays a compact resume');
+			this.out('<span class="commandhelp">resume</span>Displays a mini resume');
 			this.out('<span class="commandhelp">jessica</span>Run this command at your own risk.');
 			this.out('<span class="commandhelp">ilovebubbles</span>Link to a certain someone\'s webpage');
 			this.out('<span class="commandhelp">logout</span>Exit current user session.');
@@ -212,6 +213,11 @@ var Terminal = new Class({
 			this.currentPrompt = null;
 			this.terminal.empty();
 			this.helloThere(username);
+			this.prompt(username);
+			return;
+		}
+		if (command == 'portfolio') {
+			this.out("Portfolio not up yet!");
 			this.prompt(username);
 			return;
 		}
@@ -259,16 +265,17 @@ var Terminal = new Class({
 			if (page == 'jessica') {
 			this.out("<span class='man'><center>USER COMMANDS</center></span>");
 			this.out("<span class='man'>NAME</span>");
-			this.out("<span class='maninfo'><i>jessica</i>- strange girl who loves lemons, potatoes, and penguins.</span>");
+			this.out("<span class='maninfo'><i>jessica</i> -  girl obsessed with lemons, potatoes, and penguins.</span>");
 			this.out("<span class='man'>SYNOPSIS</span>");
 			this.out("<span class='maninfo'><i>jessica [OPTION]...</i></span>");
 			this.out("<span class='man'>DESCRIPTION</span>");
-			this.out("<span class='maninfo'>She's weird. She draws penguins everywhere. A jack of all trades. She draws, plays piano and violin,</span>");
+			this.out("<span class='maninfo'>She is a very strange girl, I can tell you that. She loves to draw and doodle, make music, and sleep. Her favorite Starcraft unit is the SCV. </span>");
 			this.out("<span class='man'>OPTIONS</span>");
+			this.out("<span class='maninfo'>-a &nbsp;&nbsp;&nbsp; activities</span>");
 			this.out("<span class='maninfo'>-c &nbsp;&nbsp;&nbsp; contact information</span>");
 			this.out("<span class='maninfo'>-p &nbsp;&nbsp;&nbsp; art portfolio (pdf)</span>");
-			this.out("<span class='maninfo'>-q &nbsp;&nbsp;&nbsp; quotes</span>");
-			this.out("<span class='maninfo'>-h &nbsp;&nbsp;&nbsp; hobbies</span>");
+			this.out("<span class='maninfo'>-r &nbsp;&nbsp;&nbsp; resume</span>");
+
 		}
 			else if (page == 'psh') {
 			this.out("<span class='man'><center>USER COMMANDS</center></span>");
@@ -277,7 +284,7 @@ var Terminal = new Class({
 			this.out("<span class='man'>SYNOPSIS</span>");
 			this.out("<span class='maninfo'><i>psh </i></span>");
 			this.out("<span class='man'>DESCRIPTION</span>");
-			this.out("<span class='maninfo'>psh is not an actual shell. It merely tries to mimic one (and fails to in some aspects). This might displease some diehard UNIX lovers and UNIX-savvy individuals (sorry, too bad). Psh was written in Javascript with MooTools, and was made to be as user-friendly as possible. <br /> Its only purpose in life is to act as a website disguised as a console. </span>");
+			this.out("<span class='maninfo'>psh is not an actual shell. It merely tries to mimic one (and fails to in some aspects). This might displease some diehard *NIX users and *NIX-savvy individuals (sorry, too bad). Psh was written in Javascript with MooTools, and was made to be as user-friendly as possible. Its only purpose is to act as a website disguised as a console. </span>");
 
 		}
 			else { 
@@ -293,24 +300,23 @@ var Terminal = new Class({
 			this.out("This is a striped goldfish, in case you couldn't tell.");
 			this.out("<a href=\"http://bubbles.com/\">NERSOR</a>");
 			
-			this.out("Type 'goto ilovebubbles' to open a new window.");
 			this.prompt(username);
 			return;
 		}
 		
-		if (command.substr(0,4) == 'goto') {
+/*		if (command.substr(0,4) == 'goto') {
 			var dest = command.substr(5);
 			if (dest == 'ilovebubbles') { window.open("http://gmail.com/",'bubbles'); }
 			else if (dest == '') { this.out('destination: blog, linkedin, spaniards'); }
 			else { window.location.href = dest; };
-
 			this.prompt(username);
 			return;
 		}
-
-		if (command.substr(0,2) == 'ls') {
+*/
+		//NOT IMPLEMENTED YET
+/*		if (command.substr(0,2) == 'ls') {
 			var dest = command.substr(3).trim();
-			var request = new Request.HTML().get('terminal.php?command=ls&path='+this.path+'/'+dest);
+			var request = new Request.HTML().get('index.php?command=ls&path='+this.path+'/'+dest);
 			request.addEvent('complete', function() {
 				if (request.isSuccess()) {
 					this.out(request.response.html);
@@ -321,55 +327,28 @@ var Terminal = new Class({
 			}.bind(this));
 			return;
 		}
+*/
 
-		if (command == 'press') {
-			this.out('<span class="date">Mar 03, 2008</span> <span class="title">Interview with Elia</span> <a class="mp3" target="_blank" href="/press/20080303_entrevista_elia_eneko.mp3">mp3</a> <a class="www" target="_blank" href="http://www.elia.ws/blog/paso_por_paso_robles/">www</a>');
-			this.out('<span class="date">Sep 30, 2007</span> <span class="title">Spaniards.es at Galicia Hoxe</span> <a class="pdf" target="_blank" href="/press/20070930_spaniards.es_galiciahoxe_page1.pdf">pdf1</a> <a class="pdf" target="_blank" href="/press/20070930_spaniards.es_galiciahoxe_page2.pdf">pdf2</a>');
-			this.out('<span class="date">Sep 25, 2007</span> <span class="title">Spaniards.es at 5lineas.com</span> <a class="png" target="_blank" href="/press/20070925_spaniards.es_5lineas.com.png">png</a> <a class="www" target="_blank" href="http://5lineas.com/archivo/entrevistas/entrevista-a-eneko-alonso-spaniards/">www</a>');
-			this.out('<span class="date">Mar 30, 2007</span> <span class="title">Spaniards.es at Infoempleo</span> <a class="pdf" target="_blank" href="/press/20070330_spaniards.es_infoempleo.pdf">pdf</a>');
-			this.out('<span class="date">Feb 08, 2006</span> <span class="title">Spaniards.es at Diario de Navarra</span> <a class="pdf" target="_blank" href="/press/20060208_spaniards.es_diariodenavarra.pdf">pdf</a>');
-			this.prompt(username);
-			return;
-		}
 
 		if (command == 'projects') {
-			this.out('<b>spaniards.es</b> - An online community for Spanish people living abroad (<a target="_blank" href="http://www.spaniards.es">www.spaniards.es</a>)');
-			this.out('<b>vaka-framework</b> - A Mootools based set of classes (<a target="_blank" href="http://vaca-framework.googlecode.com">vaca-framework.googlecode.com</a>)');
+			this.out("<font class='highlight'>SC1 SCV plush</font> - I ASSURE YOU, THIS WILL BE MADE ONE DAY.</span>");
+			this.out("<font class='highlight'>PenguinSHell</font> - workin' on this fake terminal for this site");
 			this.prompt(username);
 			return;
 		}
 
 		if (command == 'skills') {
-			this.out('<b><i>Eneko Alonso’s Specialties:</i></b>');
-			this.out('PHP, Javascript, AJAX, jQuery, Mootools, Prototype, Scriptaculous, Drupal');
-			this.out('C/C++, Delphi, Python and Cocoa/Objective-C');
-			this.out('MySQL, Sybase and Oracle');
+			this.out('I HAS NO SKILLS ;w;');
 			this.prompt(username);
 			return;
 		}
 
-		if (command == 'svn') {
-			this.out('<a target="_blank" href="http://enekoalonso.com/svn">enekoalonso.com/svn</a> - SVN code repository I use for research and development');
-			this.prompt(username);
-			return;
-		}
-		
 		if (command == 'resume') {
-			this.out(' - <b><i>Senior Engineer</i></b> at LEVEL Studios since June 2008');
-			this.out(' - <b><i>Founder/CEO</i></b> at Spaniards.es LLC since November 2005');
-			this.out(' - <b><i>Lead Programmer/Analyst</i></b> at 3i Infotech from January 2005 to June 2008');
-			this.out(' - <b><i>Programmer/Analyst</i></b> at Fedetec from October 2002 to December 2004');
-			this.out(' - <b><i>Senior Programmer</i></b> at Cap Gemini Ernst &amp; Young from April 2001 to August 2002');
-			this.out(' - <b><i>Programmer</i></b> at Axpe Consulting &amp; Price Waterhouse Coopers from October 2000 to April 2001');
+			this.out("Resume? What resume?");
 			this.prompt(username);
 			return;
 		}
 		
-		if (command == 'whois') {
-			this.out('<img src="/img/eneko.jpg"/><b>Eneko Alonso</b> is a software enginner with more than eight years of experience in web, desktop and server software:<br/><i class="bio">I am a software engineer who likes beautiful code and good design. I love debugging and digging into the code, finding out how things work. During my career I have worked on client/server environments, both Unix and Windows, developing multi threaded services and DB driven software. I have also been in contact with web development, both front and back end, learning from the latest technologies and putting them in practice in multiple projects.</i>');
-			this.prompt(username);
-			return;
-		}
 		if (command == 'psh') {
 			this.out('Currently running <font class="highlight">PenguinShell \(psh\) v 0.1</font>');
 			this.out('Written in Javascript with MooTools');
