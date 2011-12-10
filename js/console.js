@@ -1,6 +1,4 @@
 
-function dbg(txt) { if (window.console) console.log(txt); }
-
 //flags for stuffs.
 username = "";
 loginflag = 0;
@@ -35,8 +33,7 @@ var Terminal = new Class({
 	}, 
 	// Process keystrokes
 	keydown: function(event) {
-		dbg('keydown> ' + event.key + '(' + event.code + ') ' + event.control + ' - ' + event.shift + ' - ' + event.alt + ' - ' + event.meta);
-		if (event.control /*|| event.shift*/ || event.alt || event.meta) return;
+
 		var command = this.currentCommand.get('html');
 
 		if (event.key == 'enter') {
@@ -79,6 +76,16 @@ var Terminal = new Class({
 			return;
 			
 		}
+		
+		if (event.code == 190) {
+			event.preventDefault();
+				command += '.';
+			 //else {
+				//command += event.key;
+			//}
+			this.currentCommand.set('html', command);
+			return;
+		}
 
 	},
 	clearScreen: function() {
@@ -89,35 +96,8 @@ var Terminal = new Class({
 		},
 
 	keypress: function(event) {
-//		dbg('keypress> ' + event.key + '(' + event.code + ') ' + event.control + ' - ' + event.shift + ' - ' + event.alt + ' - ' + event.meta);
-//		if (event.control /*|| event.shift*/ || event.alt || event.meta) return;
 		var command = this.currentCommand.get('html');
-
-		//$('body').focus();
-
-		if (event.key == 'enter') {
-			event.preventDefault();
-		//	this.run();
-			return;
-		}
-
-//		if (event.key == 'backspace') {
-//			event.preventDefault();
-//			if (command.substr(command.length-6) == '&nbsp;') {
-//				command = command.substr(0, command.length-6);
-//			} else {
-//				command = command.substr(0, command.length-1);
-//			}
-//			this.currentCommand.set('html', command);
-//			return;
-//		}
-
-		// if (event.key == 'tab') {
-		// 	event.preventDefault();
-		// 	this.guess();
-		// 	return;
-		// }
-
+		
 		if (event.key == 'space') {
 			event.preventDefault();
 			command += '&nbsp;';
@@ -150,17 +130,12 @@ var Terminal = new Class({
 			event.preventDefault();
 			if (event.code == 46) {
 				command += '.';
-			} else {
-				command += event.key;
-			}
+			} //else {
+				//command += event.key;
+			//}
 			this.currentCommand.set('html', command);
 			return;
 		}
-
-		
-	},
-	capslock: function(code) {
-		return (code > 64 && code < 91);
 	},
 	validkey: function(code) {
 		return  //(code > 64 && code < 91)  ||	// [A-Z]
@@ -206,7 +181,7 @@ var Terminal = new Class({
 
 	// Executes a command
 	run: function() {
-//		if (loginflag == 1) {
+
 		var command = this.currentCommand.get('text');
 		
 		this.commandHistory.push(command);
@@ -218,7 +193,7 @@ var Terminal = new Class({
 			this.out('<span class="commandhelp">psh</span>Version of the shell you\'re using.');
 			this.out('<span class="commandhelp">contact</span>Contact info.')
 			this.out('<span class="commandhelp">date</span>Displays the current date.');
-			this.out('<span class="commandhelp">goto</span>Jump to other pages.');
+			this.out('<span class="commandhelp">goto</span>Jump to other pages. (e.g., goto ilovebubbles, goto http://google.com/)');
 			this.out('<span class="commandhelp">help</span>Displays this list of available commands.');
 			this.out('<span class="commandhelp">ls</span>List directories.');
 			this.out('<span class="commandhelp">projects</span>List of current projects.');
@@ -275,7 +250,7 @@ var Terminal = new Class({
 		if (command == 'jessica') {
 			this.out("<br />");
 			this.out("<pre id='penguin'>NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNmmmmdddddmNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN<br />NNNNNNNNNNNNNNNNNNNdhysoooooooossyhhhhhhysooosshmNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN<br />NNNNNNNNNNNNNNNNNy/--/osdmNNNNNNNNNNNNNNNNNNNNdyo+oshNNNNNNNNNNNNNNNNNNNNNNNNNNN<br />NNNNNNNNNNNNNNNNNNNNms-`:odNNNNNNNNNNNNNNNNNNNNNNNNmyooymNNNNNNNNNNNNNNNNNNNNNNN<br />NNNNNNNNNNNNNNNNNNNh/-odNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNho+yNNNNNNNNNNNNNNNNNNNNN<br />NNNNNNNNNNNNNNNNNh:/yNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNho+dNNNNNNNNNNNNNNNNNN<br />NNNNNNNNNNNNNNNy:+dNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNmoodNNNNNNNNNNNNNNNN<br />NNNNNNNNNNNNNd/omNmhsyhNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNdoodNNNNNNNNNNNNNN<br />NNNNNNNNNNNm++hyo/.-hNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNh/+mNNNNNNNNNNNN<br />NNNNNNNNNNy-://oy+-dNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNmo:hNNNNNNNNNNN<br />NNNNNNNNNo:ohmNNy:mNNNNNNNNNNNNNNNNNNNNNNNNNNNyNNNNNNNNNNNNNNNNNNNNh-yNNNNNNNNNN<br />NNNNNNNNNmNNNNNh:mNNNNNNmmNNNNNNNNNNNNNNNNNNNs+NNNNNNNNNNNNNNNNNNNNNd-sNNNNNNNNN<br />NNNNNNNNNNNNNNm:dNNNNNNd-hNNNNNNNNNNNNNNNNNNN-om/dNNNNNNNNNNNNNNNNNNNd-sNNNNNNNN<br />NNNNNNNNNNNNNN/yNNNNNNNo`dhmNNNNNNNNNNNNNNNNN.`.`sNNNNNNNNNNNNNNNNNNNNh.oNNNNNNN<br />NNNNNNNNNNNNNs/NNNNNNNN+`:.sNNNNNNNNNNNNNNNNN+```yNNNNNNNNNNNNNNNNNNNNNy`+NNNNNN<br />NNNNNNNNNNNNm:mNNNNNNNNo```sNNNNNNNNNNNNNNNNNm+-:mNNNNNNNNNNNNNNNNNNNNNNo`sNNNNN<br />NNNNNNNNNNNNsyNNNNNNNNNh```hNNNNNNNNNNNNNNNNNNNmNNNNNNNNNNNNNNNNNNNNNNNNN:.mNNNN<br />NNNNNNNNNNNN+NNNNNNNNNNNs/sNNmddhhhhhhhhhhyyyyyhdmNNNNNNNNNNNNNNNNNNNNNNNm-/NNNN<br />NNNNNNNNNNNsyNNNNNNNNNNNmhyssyhdddmmmmmmmmmmmdddhyohNNNNNNNNNNNNNNNNNNNNNNs`hNNN<br />NNNNNNNNNNN/mNNNNNNNNNNd/ydmNNNNNNNNNNNNNNNNNNNNNdosNNNNNNNNNNNNNNNNNNNNNNm.:NNN<br />NNNNNNNNNNh+NNNNNNNNNNNdoyhddddddddddmddhhyyyyyyyhdNNNNNNNNNNNNNNNNNNNNNNNNo`hNN<br />NNNNNNNNNN+hNNNNNNNNNNNNNNmddddddddddmmdmmmNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNd.:NN<br />NNNNNNNNNm:NNNNNNNNNNNNNNNNNNNNNNNmdddmmNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN/`dN<br />NNNNNNNNNh/NNNNNNNNNNNNNNNNNNdhyssssss+++sdNNNNNNNNNNNNNNNdNNNNNNNNNNNNNNNNNd`sN<br />NNNNNNNNNooNNNymNNNNNNNNNNmhoshmNNNNNNNNdy//odNNNNNNNNNNNN+dNNNNNNNNmNNNNNNNN:+N<br />NNNNNNNNN+yNNN+hNNNNNNNNmhoymNNNNNNNNNNNNNNdo:/hmNNNNNNNNNhoNNNNNNNm-hNNNNNNN+/N<br />NNNNNNNNN/hNNNy/NNNNNNNhoyNNNNNNNNNNNNNNNNNNNmy-:yNNNNNNNNm:mNNNNNNo-mNNNNNNN+oN<br />NNNNNNNNN/ymNNN:yNNNNNy+mNNNNNNNNNNNNNNNNNNNNNNms./mNNNNNNN/yNNNNNo-dNNNNNNNN/yN<br />NNNNNNNNN/ooshdo.mNNNosNNNNNNNNNNNNNNNNNNNNNNNNNNh--hNNNNNNs:NNNd//mNNNNNNNNm:mN<br />NNNNNNNNN:oNmhyyhNNNoyNNNNNNNNNNNNNNNNNNNNNNNNNNNNm/.sysymNh.Nd+:sNNNNNNNNNNsoNN<br />NNNNNNNNN//NNNNNNNNosNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNm-.sdo/sm:+/sNNNNNNNNNNNd:mNN<br />NNNNmhy+/-.mNNNNNNhoNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNm:yNNNNoomNNNNNNNNNNNNNm/yNNN<br />NNmooyhddh+oNNNNNm/NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNm/sNNNNNN+oNNNNNNNNNNNNN/+NNNN<br />NNy:mNNNNNN+yNNNN+yNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN+oNNNNNNNN:yNNNNNNNNNNm/+NNNNN<br />NNNy/hNNNNNN+yNNd/NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNy/NNNNNNNNNd-dNNNNNNNNd:sNNNNNN<br />NNNNd/sNNNNNNosNodNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN-dNNNNNNNNNNo+NNNNNNdo/hNNNNNNN<br />NNNNNNo+dNNNNNy/:mNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNy:NNNNNNNNNNNm-mNNNd+/hNNNNNNNNN<br />NNNNNNNh:sNNNNNm/+dNNNNNNNNNNNNNNNNNNNNNNNNNNNNN/oNNNNNNNNNNNNoomy/+dNNNNNNNNNNN<br />NNNNNNNNm/:dNNNNNh++hNNNNNNNNNNNNNNNNNNNNNNNNNNN-dNNNNNNNNNNNNy./smNNNNNNNNNNNNN<br />NNNNNNNNNNh:+dNNNNNmo/ohmNNNNNNNNNNNNNNNNNNNNNNN-dNNNNNNNNNNNN/-mNNNNNNNNNNNNNNN<br />NNNNNNNNNNNNh++ymmmmmds-./ymNNNNNNNNNNNNNNNNNNNN:yNNNNNNNNNNNs.dNNNNNNNNNNNNNNNN<br />NNNNNNNNNNNNNNmhsoo++oshmhs+///oshdmmmmmNNNmddhy::dNNNNNNNms:/dNNNNNNNNNNNNNNNNN<br />NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNmmdyysyssssoossyhmmdo+osso++oymNNNNNNNNNNNNNNNNNNN<br />NNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNNN</font></pre>");
-			this.out("Type 'man jessica' for more information.");
+			this.out("Type `man jessica' for more information.");
 			this.prompt(username);
 			return;
 		}
@@ -325,8 +300,10 @@ var Terminal = new Class({
 		
 		if (command.substr(0,4) == 'goto') {
 			var dest = command.substr(5);
-			if (dest == 'ilovebubbles') { window.open("http://gmail.com/",'bubbles') };
-			if (dest == '') { this.out('destination: blog, linkedin, spaniards'); }
+			if (dest == 'ilovebubbles') { window.open("http://gmail.com/",'bubbles'); }
+			else if (dest == '') { this.out('destination: blog, linkedin, spaniards'); }
+			else { window.location.href = dest; };
+
 			this.prompt(username);
 			return;
 		}
@@ -394,8 +371,6 @@ var Terminal = new Class({
 			return;
 		}
 		if (command == 'psh') {
-			this.out("<pre id=\"penguin\">		..-``        <br />      sh+-:sh.      <br />    .yNMNhmMMN+.    <br />  `hNMMNdhhhmNNNh.  <br /> -NMNy:      `/dMN: <br />.NMMo          `dNM+<br />-oyN.      `````o+-.<br />  yN````````````oo  <br />  +No``````````.m-  <br />   +Nd:``````-od+   <br />    .-/oo/+++o/:`   </pre>");
-
 			this.out('Currently running <font class="highlight">PenguinShell \(psh\) v 0.1</font>');
 			this.out('Written in Javascript with MooTools');
 			this.out('Type `man psh\' for more information about this hugely dysfunctional shell.');

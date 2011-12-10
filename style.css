@@ -1,13 +1,8 @@
-
-* {
+body {
 	margin-top: 0px;
 	margin-bottom: 0px;
 	margin-left: 0px;
-
 	padding: 0px;
-}
-
-body {
 	background: #2e0404;
 	color: #823d3d;
 	font: 14px  "Ubuntu Mono", "Lucida Console", "Courier New", Courier;
@@ -30,9 +25,10 @@ b {
 	color: #b17575;
 	font-weight: heavy;
 }
-pre#bubbles {font-size:8pt; line-height:5pt;  letter-spacing: -1px;font-weight: bold;}
+pre#bubbles {font-size:8pt; line-height:3pt;  letter-spacing: -3px;font-weight: bold;}
 pre#penguin {font-size:8pt; line-height:8pt; letter-spacing: -1.5px; font-weight: bold;}
-pre#penguin {font-size:12px; line-height:15px; letter-spacing: -0.5px; font-weight:bold;}
+pre#penguin {font-size:12px; line-height:9px; letter-spacing: -2px; font-weight:bold;}
+
 span.man
 {
 	color: #CF6A4C;
@@ -61,39 +57,14 @@ span.prompt {
 	padding-bottom: 2px;
 	color: #ae3c3c;
 }
-span#cursor {
-	background-color: #ccc;
-	height: 13px;
-	width: 7px;
-	}
+
 span.blink {
 	font-size: 14px;
 	line-height:12px;
 text-decoration: blink;
 }
 
-
 span.commandhelp {
 	width: 120px;
 }
-span.date {
-	color: #aaa;
-	width: 100px;
-}
-span.title {
-	width: 260px;
-}
-img {
-	float: left;
-	margin-right: 5px;
-}
 
-td {
-	padding-right: 5px;
-}
-td.filesize {
-	text-align: right;
-}
-td.dir {
-	color: #75f;
-}
