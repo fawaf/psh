@@ -31,7 +31,9 @@ var Terminal = new Class({
 		this.out("<br />************************");
 		
 	}, 
-	// Process keystrokes
+
+
+//KEYSTROKES
 	keydown: function(event) {
 
 		var command = this.currentCommand.get('html');
@@ -80,12 +82,10 @@ var Terminal = new Class({
 		if (event.code == 190) {
 			event.preventDefault();
 				command += '.';
-			 //else {
-				//command += event.key;
-			//}
 			this.currentCommand.set('html', command);
 			return;
 		}
+
 
 	},
 	clearScreen: function() {
@@ -191,16 +191,16 @@ var Terminal = new Class({
 			this.out('<span class="commandhelp">clear</span>Clear screen.')
 			this.out('<span class="commandhelp">gui</span>Redirect to alternate graphic-based website.');
 			this.out('<span class="commandhelp">psh</span>Version of the shell you\'re using.');
+			this.out('<span class="commandhelp">portfolio</span>Link to art portfolio.</span>');
 			this.out('<span class="commandhelp">contact</span>Contact info.')
 			this.out('<span class="commandhelp">date</span>Displays the current date.');
-			this.out('<span class="commandhelp">goto</span>Jump to other pages. (e.g., goto ilovebubbles, goto http://google.com/)');
 			this.out('<span class="commandhelp">help</span>Displays this list of available commands.');
 			this.out('<span class="commandhelp">ls</span>List directories.');
 			this.out('<span class="commandhelp">projects</span>List of current projects.');
 			this.out('<span class="commandhelp">skills</span>SKILLZ.');
 			this.out('<span class="commandhelp">resume</span>Displays a compact resume');
 			this.out('<span class="commandhelp">jessica</span>Run this command at your own risk.');
-			this.out('<span class="commandhelp">ilovebubbles</span>Link to Nelson Zhang\'s webpage');
+			this.out('<span class="commandhelp">ilovebubbles</span>Link to a certain someone\'s webpage');
 			this.out('<span class="commandhelp">logout</span>Exit current user session.');
 
 			
@@ -412,14 +412,5 @@ $(window).addEvent('domready', function() {
 	window.terminal = new Terminal($('terminal'));
 });
 
-/*  $("span.cursor").ready(function() {
-      $("span.cursor").effect("pulsate", { times: 9999 }, 500);
-});
-*/
-function blink(){ 
-var poop = document.getElementbyId("cursor"); 
-poop.setStyle('background-color', '#000000');
-alert("hith");
-}
 
 
