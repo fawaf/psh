@@ -393,3 +393,8 @@ $(window).addEvent('domready', function() {
 
 
 
+function blink() {
+	var poop = document.getElement('.blink');
+	poop.style.display = "none";
+}
+blink();
