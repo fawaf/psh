@@ -1,4 +1,4 @@
-// Y U LOOK AT MY SOURCE CODE FOO? IT'S ATROCIOUS. ITS FUGLY. GO AWAY.
+// Y U LOOK AT MY SOURCE CODE FOO? IT'S ATROCIOUS. 
 
 //flags for stuffs.
 username = "";
@@ -33,6 +33,11 @@ var Terminal = new Class({
 		
 	}, 
 
+ hasWhiteSpace: function(str) {
+  space = /\&nbsp\;/i;
+
+  return space.test(str);
+},
 
 //KEYSTROKES
 	keydown: function(event) {
@@ -45,13 +50,26 @@ var Terminal = new Class({
 			if (loginflag == 1) { //check if login process done and over with
 				this.run(); //if user logged in already, just run the command and continue as usual.
 			}
+			else if (command.length > 20) {
+				this.out("Username too long. Try again.");
+				this.displayLogin();
+			}
+			else if (command.length < 2) {
+				this.out("Username too short. Try again.");
+				this.displayLogin();
+			}
+			else if (this.hasWhiteSpace(command)) {
+				this.out("Username has whitespace. Try again.");
+				this.displayLogin();
+			}
 			else {
 				if (welcomeflag = 1) { //not logged in yet, still need to display welcome message
 				this.clearScreen();
 				this.helloThere(command);
 				this.prompt(command);}
 				else {
-					this.prompt(command);}
+					this.prompt(command);
+					}
 			}
 			return;
 		}
@@ -86,6 +104,20 @@ var Terminal = new Class({
 			this.currentCommand.set('html', command);
 			return;
 		}
+		
+		if (event.code > 44 && event.code < 58) { //numbers
+			event.preventDefault();
+				command += String.fromCharCode(event.code);
+				this.currentCommand.set('html', command);
+				return;
+			}
+			
+	var charStr = String.fromCharCode(event.code);
+    if (charStr == "&" || charStr == "_") {
+        command += charStr;
+        this.currentCommand.set('html', command);
+        return;
+    }
 
 
 	},
@@ -237,8 +269,8 @@ var Terminal = new Class({
 	}
 			
 		if (command == 'contact') {
-			this.out('kumimoko.yo[at]gmail[dot]com');
-			this.prompt();
+			this.out('Please send questions, comments, hate mail, etc. to kumimoko.yo[at]gmail[dot]com.');
+			this.prompt(username);
 			return;
 		}
 		if (command == 'gui') {
@@ -249,7 +281,7 @@ var Terminal = new Class({
 		
 		if (command == 'date') {
 			this.out(new Date());
-			this.prompt();
+			this.prompt(username);
 			return;
 		}
 		
