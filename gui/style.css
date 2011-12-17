@@ -1,0 +1,169 @@
+body {
+
+margin-left:30%;
+margin-right:auto;
+margin-top: 00px;
+background-color:#290000;
+}
+
+a:link.navLinks
+{
+	text-decoration: none;
+	color: #fffdbb; 
+	font-family: 'Oswald'; 
+	font-size:18px; 
+	padding: 5px;
+	line-height:23px;
+	text-shadow: -1px 0 black, 0 1px black,
+      1px 0 black, 0 -1px black; 
+     letter-spacing: 0.5px;
+ }
+a:visited.navLinks
+{
+	text-decoration: none;
+	color: #fffdbb; 
+	font-family: 'Oswald'; 
+	font-size:18px; 
+	padding: 5px;
+	line-height:23px;
+	text-shadow: -1px 0 black, 0 1px black,
+      1px 0 black, 0 -1px black; 
+ }
+ a:hover.navLinks
+{
+	text-decoration: none;
+	color: #ffd562; 
+	font-family: 'Oswald'; 
+	font-size:18px; 
+	padding: 5px;
+	text-shadow: -1px 0 black, 0 1px black,
+      1px 0 black, 0 -1px black; 
+ }
+
+a {
+font-family: 'Coming Soon';
+font-size: 16px; 
+font-weight: bold;
+color: #ffd562; 
+line-height: 15px;
+text-shadow: -1px 0 black, 0 1px black,1px 0 black, 0 -1px black;
+text-decoration: none;
+}
+.headerText
+{
+font-family: 'Yellowtail'; 
+font-size: 80px; 
+line-height:45px; 
+color: #2a0000;
+text-shadow: -4px 0 #fffdbb, 0 4px #fffdbb, 4px 0 #fffdbb, 0 -4px #fffdbb;
+}
+.subheaderText
+{
+font-family: 'Over the Rainbow'; 
+font-size: 25px; 
+line-height: 35px; 
+color: #ffd562;
+text-shadow: -1px 0 black, 0 1px black,
+      1px 0 black, 0 -1px black;
+}
+
+#megaWrapper
+{
+width: 600px;
+height: auto;
+
+}
+
+#headerWrapper
+{
+width: 600px;
+
+height: 280px;
+}
+
+
+#navBox 
+{
+background-color: #1e0000; 
+padding: 4px; 
+width: 554px;
+clear: both;
+text-align: center;
+
+
+}
+
+#flamingToaster {
+
+   float: left;
+   width: 340px;
+
+
+}
+
+#penguin {
+margin-top: 60px;
+margin-left: 00px;
+float: right;
+width: 260px;
+
+vertical-align: bottom;
+
+}
+
+.contentBox
+{
+background-color: #310f0f;
+width: 520px;
+
+padding-left: 20px;
+padding-right: 20px;
+padding-top: 10px;
+padding-bottom: 20px;
+
+}
+
+#contentText
+{
+font-family: 'Coming Soon';
+font-size: 13px; 
+color: #fffdbb; 
+line-height: 15px;
+text-shadow: -1px 0 black, 0 1px black,1px 0 black, 0 -1px black;
+
+}
+
+h1
+{
+font-size: 40px; 
+font-family: 'Shadows Into Light';
+color: #fffdbb; 
+text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; 
+line-height: 5px;
+letter-spacing: 0.5px;
+}
+
+h2
+{
+font-size:18px; 
+font-family: 'Over the Rainbow';
+text-shadow: -1px 0 black, 0 1px black,
+      1px 0 black, 0 -1px black; 
+      line-height: 5px; 
+      color: #ffd562;
+}
+
+h3
+{
+line-height: 15px;
+font-family: 'Shadows Into Light';
+text-transform: uppercase;
+line-height: 5px;
+font-size: 16px;
+color:  #ffd562;
+text-shadow: -1px 0 black, 0 1px black,
+      1px 0 black, 0 -1px black; 
+
+}
+
+

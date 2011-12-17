@@ -274,7 +274,7 @@ var Terminal = new Class({
 			return;
 		}
 		if (command == 'gui') {
-			window.location.href = 'http://google.com/';
+			window.location.href = '/gui/index.html';
 			this.prompt(username);
 			return;
 		} 
