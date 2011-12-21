@@ -1,3 +1,5 @@
+@-moz-document url-prefix() {
+
 body {
 
 margin-left:30%;
@@ -5,7 +7,6 @@ margin-right:auto;
 margin-top: 00px;
 background-color:#290000;
 }
-
 
 a:link.navLinks
 {
@@ -17,7 +18,7 @@ a:link.navLinks
 	line-height:23px;
 	text-shadow: -1px 0 black, 0 1px black,
       1px 0 black, 0 -1px black; 
-     
+     letter-spacing: -2px;
  }
 a:visited.navLinks
 {
@@ -57,6 +58,7 @@ font-size: 80px;
 line-height:45px; 
 color: #2a0000;
 text-shadow: -4px 0 #fffdbb, 0 4px #fffdbb, 4px 0 #fffdbb, 0 -4px #fffdbb;
+
 }
 .subheaderText
 {
@@ -87,7 +89,7 @@ height: 280px;
 {
 background-color: #1e0000; 
 padding: 4px; 
-width: 553.5px;
+width: 554px;
 clear: both;
 text-align: center;
 
@@ -143,7 +145,7 @@ font-family: 'Shadows Into Light';
 color: #fffdbb; 
 text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black; 
 line-height: 5px;
-letter-spacing: 0.5px;
+letter-spacing: -1px;
 }
 
 h2
@@ -154,6 +156,7 @@ text-shadow: -1px 0 black, 0 1px black,
       1px 0 black, 0 -1px black; 
       line-height: 5px; 
       color: #ffd562;
+      letter-spacing: -1px;
 }
 
 h3
@@ -186,6 +189,7 @@ text-shadow: -1px 0 black, 0 1px black,
 	font-family: 'Architects Daughter';
 	text-transform: uppercase;
 	font-size: 12px;
+	letter-spacing: -1px;
 }
 
 .accordion_headings:hover{
@@ -203,122 +207,7 @@ text-shadow: -1px 0 black, 0 1px black,
 }
 
 .header_highlight{
-	background:#00CCFF;
+	background:#7b1c1c;
 }
 
-
-/* lightbox */
-
-#lightbox{
-	position: absolute;
-	left: 0;
-	width: 100%;
-	z-index: 100;
-	text-align: center;
-	line-height: 0;
-	}
-
-#lightbox a img{ border: none; }
-
-#outerImageContainer{
-	position: relative;
-	background-color: #fff;
-	width: 250px;
-	height: 250px;
-	margin: 0 auto;
-	}
-
-#imageContainer{
-	padding: 10px;
-	}
-
-#loading{
-	position: absolute;
-	top: 40%;
-	left: 0%;
-	height: 25%;
-	width: 100%;
-	text-align: center;
-	line-height: 0;
-	}
-#hoverNav{
-	position: absolute;
-	top: 0;
-	left: 0;
-	height: 100%;
-	width: 100%;
-	z-index: 10;
-	}
-#imageContainer>#hoverNav{ left: 0;}
-#hoverNav a{ outline: none;}
-
-#prevLink, #nextLink{
-	width: 49%;
-	height: 100%;
-	background: transparent url(../lightbox/images/blank.gif) no-repeat; /* Trick IE into showing hover */
-	display: block;
-	}
-#prevLink { left: 0; float: left;}
-#nextLink { right: 0; float: right;}
-#prevLink:hover, #prevLink:visited:hover { background: url(/home/flamingtoast/Documents/flaming-toast.com/gui/lightbox/images/prevlabel.gif) left 15% no-repeat; }
-#nextLink:hover, #nextLink:visited:hover { background: url(/home/flamingtoast/Documents/flaming-toast.com/gui/lightbox/images/nextlabel.gif) right 15% no-repeat; }
-
-
-#imageDataContainer{
-	font: 10px Verdana, Helvetica, sans-serif;
-	background-color: #fff;
-	margin: 0 auto;
-	line-height: 1.4em;
-	}
-
-#imageData{	padding:0 10px; color: #666; }
-#imageData #imageDetails{ width: 70%; float: left; text-align: left; }	
-#imageData #caption{ font-weight: bold;	}
-#imageData #numberDisplay{ display: block; clear: left; padding-bottom: 1.0em;	}			
-#imageData #bottomNavClose{ width: 66px; float: right;  padding-bottom: 0.7em;	}	
-		
-#overlay{
-	position: absolute;
-	top: 0;
-	left: 0;
-	z-index: 90;
-	width: 100%;
-	height: 500px;
-	background-color: #000;
-	}
-	
-
-/* Min-Width */
-.lbWidth { /* most browsers */
-	position: absolute;
-	top: 0px; left: 0px;
-	width: 100%;
-	min-width: 790px;
-	}
-
-* html .lbContent { /* IE6 */
-	margin-left: -790px;
-	position:relative;
-	}
-
-* html .lbMinWidth { /* IE6 */
-	padding-left: 790px;
-	}
-	
-	
-/* Clearfix */	
-.clearfix:after {
-content: ".";
-display: block;
-height: 0;
-clear: both;
-visibility: hidden;
 }
-
-.clearfix {display: inline-block;}
-
-/* Hides from IE-mac \*/
-* html .clearfix {height: 1%;}
-.clearfix {display: block;}
-/* End hide from IE-mac */ 
-	

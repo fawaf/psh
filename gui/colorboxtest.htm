@@ -1,0 +1,201 @@
+<head>
+
+	<link rel="stylesheet" href="colorbox.css" />
+
+	<script src="jquery.js"></script>
+	<script src="jquery.colorbox.js"></script>
+		<script>
+			var jnc = jQuery.noConflict();
+			jnc(document).ready(function(){
+				//Examples of how to assign the ColorBox event to elements
+				jnc(".group1").colorbox({rel:'group1'});
+
+				
+			});
+		</script>
+
+		<script><script type="text/javascript" src="gradualfader.js"></script>
+
+<style type="text/css">
+* {
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	margin:10px;
+	color: #FFFFFF;
+}
+
+#basic-accordian{
+
+	padding:5px;
+	width:310px;
+	position:absolute;
+	left:00px;
+	top:00px;
+	margin-left:00px;
+	z-index:2;
+	margin-top:00px;
+}
+
+.accordion_headings{
+	padding:5px;
+	background:#3D3D3D;
+	color:#FFFFFF;
+	border:1px solid #4D4D4D;
+	cursor:pointer;
+	font-weight:bold;
+}
+
+.accordion_headings:hover{
+	background:#00CCFF;
+}
+
+.accordion_child{
+	padding:15px;
+	background:#161616;
+}
+
+.header_highlight{
+	background:#636363;
+}
+
+</style></head>
+
+<body>
+
+<body onload="new Accordian('basic-accordian',5,'header_highlight');">
+
+<div id="basic-accordian" ><!--Parent of the Accordion-->
+	
+
+<!--Start of each accordion item-->
+  <div id="test-header" class="accordion_headings header_highlight" >Traditional Art</div><!--Heading of the accordion ( clicked to show n hide ) -->
+  
+  <!--Prefix of heading (the DIV above this) and content (the DIV below this) to be same... eg. foo-header & foo-content-->
+  
+  <div id="test-content"><!--DIV which show/hide on click of header-->
+  
+  	<!--This DIV is for inline styling like padding...-->
+    <div class="accordion_child">
+   Pencil on paper (8" x 11" unless otherwise specified).<br><br>
+    	<a href="art/anoddfamily_med.jpg" class="group1" title="An Odd Family. Pencil. Aug '08, Grade 10. [Full size, 1016x800]"><img src="art/anoddfamily_small.jpg" width=90 class="gradualfader"></a>
+  <a href="art/opticalmouse_med.jpg" class="group1" title="Optical Mouse. Pencil. Aug '08, Grade 10."><img src="art/opticalmouse_small.jpg" width=90 class="gradualfader"></a>
+    	<a href="art/untitled_med.jpg" rel="lightbox" title="Untitled. Pencil on paper (11 by 17). May '06, Grade 6."><img src="art/untitled_small.jpg" width=90 class="gradualfader"></a>
+    	
+    	
+    </div>
+    
+  </div>
+<!--End of each accordion item--> 
+
+
+<!--Start of each accordion item-->
+  <div id="test1-header" class="accordion_headings" >Digital&Hybrid</div><!--Heading of the accordion ( clicked to show n hide ) -->
+  
+  <!--Prefix of heading (the DIV above this) and content (the DIV below this) to be same... eg. foo-header & foo-content-->
+  
+  <div id="test1-content"><!--DIV which show/hide on click of header-->
+  
+  	<!--This DIV is for inline styling like padding...-->
+    <div class="accordion_child">
+    Ink/digital manipulation&coloring.<br><br>
+    	 <a href="art/parasolparty_med.jpg" rel="lightbox" title="Parasol Party. Ink/GIMP 2.6. Aug '09, Grade 11."><img src="art/parasolparty_small.jpg" class="gradualfader"></a>
+    	  <a href="art/clouds_med.jpg" rel="lightbox" title="Cloud Types. Ink/GIMP 2.4.6. June '09, Grade 11."><img src="art/clouds_small.jpg" class="gradualfader"></a>
+    </div>
+    
+  </div>
+<!--End of each accordion item--> 
+
+
+
+<!--Start of each accordion item-->
+  <div id="test2-header" class="accordion_headings" >Ink</div><!--Heading of the accordion ( clicked to show n hide ) -->
+  
+  <!--Prefix of heading (the DIV above this) and content (the DIV below this) to be same... eg. foo-header & foo-content-->
+  
+  <div id="test2-content"><!--DIV which show/hide on click of header-->
+  
+  	<!--This DIV is for inline styling like padding...-->
+    <div class="accordion_child">
+    	Ink art with Staedtler pigment pens.<br><br>
+    	<a href="art/neuron_med.jpg" rel="lightbox" title="<b><u>Multitasking Brain</u></b><br> Ink/GIMP 2.6. <br>Aug '09, Grade 11."><img src="art/neuron_small.jpg" class="gradualfader"></a>
+    	<br />
+    </div>
+    
+  </div>
+<!--End of each accordion item--> 
+
+
+<!--Start of each accordion item-->
+  <div id="test3-header" class="accordion_headings" >Clothing</div><!--Heading of the accordion ( clicked to show n hide ) -->
+  
+  <!--Prefix of heading (the DIV above this) and content (the DIV below this) to be same... eg. foo-header & foo-content-->
+  
+  <div id="test3-content"><!--DIV which show/hide on click of header-->
+  
+  	<!--This DIV is for inline styling like padding...-->
+    <div class="accordion_child">
+    	Various shirt designs for clubs, organizations, etc. <br><br>
+    <center>	
+    
+    <a href="art/mustang_med.jpg" rel="lightbox[mustang]" title="<b><u>Mustang Update (TV broadcast group).</b></u> <br>Ink/GIMP 2.6<br>
+		Requests made: bubble lettering, yellow and blue colors. <br>Feb 2008, Grade 10."><img src="art/mustang_small.jpg" class="gradualfader" border=0></a>
+		<a href="art/mustang2_med.jpg" rel="lightbox[mustang]" title="<b><u>Mustang Update (TV broadcast group).</b></u> <br>Ink/GIMP 2.6<br>
+		Requests made: bubble lettering, yellow and blue colors. <br>Feb 2008, Grade 10."><img src="art/mustang2_small.jpg" class="gradualfader" border=0></a>
+		<br><br><br>
+		
+		
+		<a href="art/simplefaith_med.jpg" rel="lightbox[simplefaith]" title="<b>Simple Faith (Christian club @ WHS)</b><br>Ink/GIMP 2.6 -- design was combined with another student's.<br>Requests made: colors black and green<br>Nov 2006, Grade 9."><img src="art/simplefaith_small.jpg" class="gradualfader" border=0></a>
+		<a href="art/simplefaith2_med.jpg" rel="lightbox[simplefaith]" title="<b><u>Simple Faith (Christian club @ WHS)</b></u><br>
+		Ink/GIMP 2.6 -- design was combined with another student's.<br>Requests made: colors black and green<br>Nov 2006, Grade 9."><img src="art/simplefaith2_small.jpg" class="gradualfader" border=0></a>
+		<br><br><br>
+	
+		
+		<a href="art/evergreen_med.jpg" rel="lightbox[evergreen]"><img src="art/evergreen_small.jpg" class="gradualfader" border=0></a>
+		<a href="art/evergreen2_med.jpg" rel="lightbox[evergreen]"><img src="art/evergreen2_small.jpg" class="gradualfader" border=0></a>
+	
+		
+</div></div>
+
+<!--Start of each accordion item-->
+  <div id="test4-header" class="accordion_headings" >Back in the day...</div><!--Heading of the accordion ( clicked to show n hide ) -->
+  
+  <!--Prefix of heading (the DIV above this) and content (the DIV below this) to be same... eg. foo-header & foo-content-->
+  
+  <div id="test4-content"><!--DIV which show/hide on click of header-->
+  
+  	<!--This DIV is for inline styling like padding...-->
+    <div class="accordion_child">
+    Uber old drawings I decided to save after gradeschool. (under construction)<br />
+    </div>
+    
+  </div>
+<!--End of each accordion item--> 
+
+</div><!--End of accordion parent-->
+
+
+
+
+<script type="text/javascript">
+gradualFader.init() //activate gradual fader
+</script>
+
+</body>
+<body>
+
+<a href="oddfamily_small.jpg" rel="lightbox" title="my caption"><img src="oddfamily_small.jpg" class="gradualfader"border=0></a>
+
+	<script type="text/javascript" src="accordian.pack.js"></script>
+
+<script type="text/javascript">
+gradualFader.init() //activate gradual fader
+</script>
+
+	
+
+</body>

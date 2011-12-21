@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+<style type="text/css">
+
+#colorbox {
+	font-size: 10px;
+	font-family: Arial;
+	}
+	</style>
+		<link rel="stylesheet" href="colorbox.css" />
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+		<script src="jquery.colorbox.js"></script>
+		<script>
+			$(document).ready(function(){
+				//Examples of how to assign the ColorBox event to elements
+				$(".group1").colorbox({rel:'group1'});
+
+
+				//Example of preserving a JavaScript event for inline calls.
+				
+			});
+		</script>
+	</head>
+	<body>
+		<h1>ColorBox Demonstration</h1>
+		
+		<h2>Elastic Transition</h2>
+		<p><a class="group1 colorbox" id="colorbox" href="art/anoddfamily_med.jpg" title="Me and my grandfather on the Ohoopee."><img src="art/anoddfamily_small.jpg" width=90 class="gradualfader"></a></p>
+		<p><a class="group1" href="../content/ohoopee2.jpg" title="On the Ohoopee as a child">Grouped Photo 2</a></p>
+		<p><a class="group1" href="../content/ohoopee3.jpg" title="On the Ohoopee as an adult">Grouped Photo 3</a></p>
+		
+		
+			</div>
+		</div>
+	</body>
+</html>
