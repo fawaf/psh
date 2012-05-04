@@ -225,6 +225,7 @@ var Terminal = new Class({
 			this.out('<span class="commandhelp">gui</span>Redirect to alternate graphic-based website.');
 			this.out('<span class="commandhelp">psh</span>Version of the shell you\'re using.');
 			this.out('<span class="commandhelp">portfolio</span>Link to art portfolio.</span>');
+			this.out('<span class="commandhelp">blog</span>I ramble...ramble..and ramble..');
 			this.out('<span class="commandhelp">contact</span>Contact info.')
 			this.out('<span class="commandhelp">date</span>Displays the current date.');
 			this.out('<span class="commandhelp">help</span>Displays this list of available commands.');
@@ -235,7 +236,7 @@ var Terminal = new Class({
 			this.out('<span class="commandhelp">jessica</span>Run this command at your own risk.');
 			this.out('<span class="commandhelp">ilovebubbles</span>Link to a certain someone\'s webpage');
 			this.out('<span class="commandhelp">logout</span>Exit current user session.');
-
+			
 			
 			this.prompt(username);
 			return;
@@ -248,6 +249,12 @@ var Terminal = new Class({
 			this.prompt(username);
 			return;
 		}
+
+		if (command == 'blog') {
+			this.out('#!hashbang -- my personal blog');
+			this.out('<a href="http://hashbang.phpfogapp.com/">Link</a>');
+		}
+
 		if (command == 'portfolio') {
 			this.out("Portfolio not up yet!");
 			this.prompt(username);
